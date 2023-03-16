@@ -1,46 +1,27 @@
-import { component$, useStylesScoped$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
-import styles from './header.css?inline';
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import styles from "./header.css?inline";
 
 export default component$(() => {
   useStylesScoped$(styles);
 
   return (
     <header>
-      <div class="logo">
-        <a href="https://qwik.builder.io/" target="_blank" title="qwik" rel="noopener">
-          <QwikLogo />
-        </a>
-      </div>
-      <ul>
-        <li>
-          <a
-            href="https://qwik.builder.io/docs/components/overview/"
-            target="_blank"
-            rel="noopener"
-          >
-            Docs
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://qwik.builder.io/examples/introduction/hello-world/"
-            target="_blank"
-            rel="noopener"
-          >
-            Examples
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://qwik.builder.io/tutorial/welcome/overview/"
-            target="_blank"
-            rel="noopener"
-          >
-            Tutorials
-          </a>
-        </li>
-      </ul>
+      <nav>
+        <img src="/mario_block.jpeg" alt="logo" />
+        <h1>Mario Life</h1>
+        <ul>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 });

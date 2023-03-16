@@ -1,7 +1,13 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$, useStylesScoped$ } from "@builder.io/qwik";
+import AboutStyles from "./about.css?inline";
+
+// index!.tsx - to exclued layout.tsx
+// index@test.tsx - to use layout-test.tsx
 
 export default component$(() => {
-  console.log("about page rendered....");
+  //   applies to global style
+  //   useStyles$(AboutStyles);
+  useStylesScoped$(AboutStyles);
   return (
     <article>
       <h2>About</h2>
