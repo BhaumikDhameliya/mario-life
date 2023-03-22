@@ -1,7 +1,7 @@
 import {
   component$,
   useSignal,
-  useStyles$,
+  // useStyles$,
   useStylesScoped$,
 } from "@builder.io/qwik";
 import Modal from "~/components/modal/modal";
@@ -45,7 +45,7 @@ export default component$(() => {
         Open Modal
       </button>
       {modalVisible.value && (
-        <Modal>
+        <Modal size="lg" frosted={true}>
           <div q:slot="content">
             <h2>Great News!!!</h2>
             <p>
