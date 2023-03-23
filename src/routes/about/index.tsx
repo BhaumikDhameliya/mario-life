@@ -3,6 +3,7 @@ import {
   useSignal,
   // useStyles$,
   useStylesScoped$,
+  $,
 } from "@builder.io/qwik";
 import Modal from "~/components/modal/modal";
 import AboutStyles from "./about.css?inline";
@@ -16,6 +17,11 @@ export default component$(() => {
   useStylesScoped$(AboutStyles);
 
   const modalVisible = useSignal(false);
+
+  const closeModal = $(() => {
+    modalVisible.value = false;
+  });
+
   return (
     <article>
       <h2>About</h2>
@@ -45,7 +51,7 @@ export default component$(() => {
         Open Modal
       </button>
       {modalVisible.value && (
-        <Modal size="lg" frosted={true}>
+        <Modal size="lg" frosted={true} close={closeModal}>
           <div q:slot="content">
             <h2>Great News!!!</h2>
             <p>
