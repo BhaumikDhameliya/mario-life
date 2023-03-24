@@ -18,7 +18,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "serve-json": "json-server -w ./data/db.json"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.21.0",
