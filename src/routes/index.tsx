@@ -17,20 +17,25 @@ interface BlogData {
 //   return data;
 // };
 
-export const getBlogsData = routeLoader$<BlogData[]>(async () => {
-  const res = await fetch("http://localhost:3000/blogs");
-  const data = await res.json();
-  return data;
+export const useGetBlogsData = routeLoader$<BlogData[]>(async () => {
+  try {
+    const res = await fetch("http://localhost:3000/blogs");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log("error----->", error);
+  }
 });
 
 export default component$(() => {
-  const blogs = getBlogsData();
+  const blogs = useGetBlogsData();
   return (
     <div>
       <h1>Okie Dokie!</h1>
 
       <div class="blogs">
         {blogs &&
+          blogs.value &&
           blogs.value.map((blog) => (
             <div key={blog.id}>
               <h3>{blog.title}</h3>
